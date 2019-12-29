@@ -2,12 +2,19 @@ const builtAt = new Date().toISOString()
 const path = require("path")
 import Mode from "frontmatter-markdown-loader/mode"
 
+const baseUrl = "https://andrefreitas.dev"
+
 module.exports = {
+  env: {
+    baseUrl
+  },
+
   head: {
     title: "André Freitas | Product owner, full stack developer & UI/UX designer",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" },
+      { name: "author", content: "André Freitas" },
       { name: "robots", content: "index, follow" },
       { property: "og:type", content: "profile" },
       { property: "og:updated_time", content: builtAt }
@@ -22,7 +29,7 @@ module.exports = {
   ],
 
   styleResources: {
-    less: "./assets/less/main.less",
+    less: "./assets/less/main.less"
   },
 
   webfontloader: {
@@ -84,7 +91,7 @@ module.exports = {
         loader: "responsive-loader",
         options: {
           placeholder: true,
-          quality: 60,
+          quality: 75,
           size: 1400,
           adapter: require("responsive-loader/sharp")
         }
@@ -99,5 +106,10 @@ module.exports = {
     }
   },
 
-  plugins: ["~/plugins/globalComponents", "~/plugins/lazyload", "~/plugins/scrollto", { src: "~plugins/ga.js", ssr: false }],
+  plugins: [
+    "~/plugins/globalComponents",
+    { src: "~/plugins/scrollto", ssr: false },
+    { src: "~/plugins/lazyload", ssr: false },
+    { src: "~plugins/ga", ssr: false }
+  ],
 }

@@ -126,6 +126,27 @@ export default {
     return { accordionActive: false };
   },
 
+  /*  head() {
+      return {
+        title: this.title,
+        meta: [
+          { name: "description", property: "og:description", content: this.description, hid: "description" },
+          { property: "og:title", content: this.title },
+          { property: "og:description", content: this.description },
+          { property: "og:image", content: this.ogImage }
+        ],
+      }
+    },
+
+  /*computed: {
+    ogImage() {
+      return `${process.env.baseUrl}/images/blog/${this.id}/_thumbnail.jpg`;
+    },
+  },*/
+
+  //return require(`../assets/images${this.image}`)
+  //`/projects/${slug}/${image}`
+
   methods: {
     onHeadingArrowClick(event) {
       this.accordionActive = !this.accordionActive;
