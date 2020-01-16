@@ -1,3 +1,5 @@
+// todo refactor slugs
+
 class ProjectFactory {
   constructor() {
     return new Promise(async (resolve, reject) => {
